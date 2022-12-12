@@ -8,8 +8,8 @@ if(isset($_POST['submit'])){
 
   
 $campaign_name=$_POST['campaign_name'];
-$campaign_start=$_POST['start_date'];
-$campaign_end=$_POST['end_date'];
+$campaign_start=$_POST['campaign_start'];
+$campaign_end=$_POST['campaign_end'];
 $adtag_type=$_POST['adtag_type'];
 $publisher_name=$_POST['publisher_name'];
 
@@ -19,10 +19,6 @@ $publisher_name=$_POST['publisher_name'];
 } 
   
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,8 +55,8 @@ $publisher_name=$_POST['publisher_name'];
 
     <form action="" method="post">
         <label for="campaign_name">Enter Campaign name: </label> <input name="campaign_name" type="text" required><br><br>
-        <label for="start_date">Enter Campaign start date: </label> <input name="start_date" type="datetime-local"><br><br>
-        <label for="end_date">Enter Campaign end date: </label> <input name="end_date" type="datetime-local"><br><br>
+        <label for="campaign_start">Enter Campaign start date: </label> <input name="campaign_start" type="datetime-local"><br><br>
+        <label for="campaign_end">Enter Campaign end date: </label> <input name="campaign_end" type="datetime-local"><br><br>
         <label for="adtag_type" required>Choose adtag type: </label>
         <select id="adtag_type" name="adtag_type">
     <option value="DCM">DCM</option>
