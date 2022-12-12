@@ -13,9 +13,14 @@ $campaign_end=$_POST['campaign_end'];
 $adtag_type=$_POST['adtag_type'];
 $publisher_name=$_POST['publisher_name'];
 
-
+  if ((strtotime($campaign_start)) > (strtotime($campaign_end)))
+{
+    Echo "<h1 style='color:red;font-size:18px;'>Please check end date.</h1>";
+}
+else {
   $sql="INSERT INTO `campaign_info`(`campaign_start`,`campaign_end`,`campaign_name`,`adtag_type`,`publisher_name`) VALUES ('$campaign_start','$campaign_end','$campaign_name','$adtag_type','$publisher_name')";
   $result=mysqli_query($connectDB,$sql);
+}
 } 
   
 ?>
