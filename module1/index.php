@@ -1,3 +1,29 @@
+
+<?php 
+
+include "conn.php";
+
+
+if(isset($_POST['submit'])){
+
+  
+$campaign_name=$_POST['campaign_name'];
+$campaign_start=$_POST['start_date'];
+$campaign_end=$_POST['end_date'];
+$adtag_type=$_POST['adtag_type'];
+$publisher_name=$_POST['publisher_name'];
+
+
+  $sql="INSERT INTO `campaign_info`(`campaign_start`,`campaign_end`,`campaign_name`,`adtag_type`,`publisher_name`) VALUES ('$campaign_start','$campaign_end','$campaign_name','$adtag_type','$publisher_name')";
+  $result=mysqli_query($connectDB,$sql);
+} 
+  
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
