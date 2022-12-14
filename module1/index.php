@@ -15,7 +15,7 @@ $publisher_name=$_POST['publisher_name'];
 
   if ((strtotime($campaign_start)) > (strtotime($campaign_end)))
 {
-    Echo "<h1 style='color:red;font-size:18px;'>Please check end date.</h1>";
+    Echo "<h1 style='color:red;font-size:18px;position:absolute;top:218px;left:700px;'>Please check end date.</h1>";
 }
 else {
   $sql="INSERT INTO `campaign_info`(`campaign_start`,`campaign_end`,`campaign_name`,`adtag_type`,`publisher_name`) VALUES ('$campaign_start','$campaign_end','$campaign_name','$adtag_type','$publisher_name')";
@@ -51,6 +51,11 @@ else {
         .main{
           text-align:center;
         }
+
+        label{
+          
+  padding:20px;
+        }
     </style>
   <title>Campaign Info</title>
 </head>
@@ -59,17 +64,18 @@ else {
     <h1 class="heading">Campaign Information</h1>
 
     <form action="" method="post">
+      
         <label for="campaign_name">Enter Campaign name: </label> <input name="campaign_name" type="text" required><br><br>
         <label for="campaign_start">Enter Campaign start date: </label> <input name="campaign_start" type="datetime-local"><br><br>
         <label for="campaign_end">Enter Campaign end date: </label> <input name="campaign_end" type="datetime-local"><br><br>
         <label for="adtag_type" required>Choose adtag type: </label>
         <select id="adtag_type" name="adtag_type">
-    <option value="DCM">DCM</option>
-    <option value="DV360">DV360</option>
-    <option value="DV360/Dbmc">DV360/Dbmc</option>
-    <option value="DFP">DFP</option>
-    <option value="CRITEO">CRITEO</option>
-    <option value="Sports">Sports</option>
+    <option value="dcm">DCM</option>
+    <option value="dv360">DV360</option>
+    <option value="dv360/dbmc">DV360/Dbmc</option>
+    <option value="dfp">DFP</option>
+    <option value="criteo">CRITEO</option>
+    <option value="sports">Sports</option>
   </select>
         <br><br>
         <label for="publisher_name">Enter publisher name: </label> <input name="publisher_name" type="text"><br><br>
@@ -78,7 +84,6 @@ else {
 </div>
         
     </form>
-    
     </div>
     <script>
 let $select = $('#templates_drop').multiselect({
