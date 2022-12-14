@@ -1,3 +1,46 @@
+<?php
+include "conn.php";
+error_reporting(E_ERROR | E_PARSE);
+session_start();
+
+
+if(isset($_POST["submit"])){
+    $email = $_POST["email-id"];
+    $pwd = $_POST["password"];
+    
+        $query = "SELECT * FROM register WHERE `email-id`='$email'";
+        // echo $query;
+        $data=mysqli_query($connectDB,$query) or die("error");
+        if(mysqli_num_rows($data)>0){
+          while($row=mysqli_fetch_assoc($data)){
+            if($email === $row['email-id'] && $pwd === $row['password']){
+                  session_start();
+                  $_SESSION["email-id"] = $row['email-id'];
+                  $_SESSION["pwd"] = $row['password'];
+                
+    
+                  
+                 
+                }
+                else{
+              echo "<div>Username or Password is incorrect</div>";
+            }
+            }
+        }else{
+          echo "<div>Username or Password is incorrect</div>";
+        }
+    }
+
+    if(isset($_SESSION["email-id"])){
+        header("location: index2.php");
+      }
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +77,12 @@
     <div class="main">
         <h1>Login page</h1>
         <form method="post" class="form" >
-            <input type="email" placeholder="Enter your email">
+            <input type="email" name="email-id" placeholder="Enter your email">
             <input type="password" name="password" placeholder="Enter your password" minlength="6">
-            <button class="submit" type="submit">Submit</button>
+            <button class="submit" type="submit" name="submit">Submit</button>
+            <a href="register.php" style="text-align:right;"> Register Now </a>
         </form>
     </div>
    
 </body>
-
 </html>
