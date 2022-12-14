@@ -10,7 +10,7 @@ if(isset($_POST["submit"])){
     $email = $_POST['email'];
 	$password = $_POST['password'];
     
-        $query = "SELECT * FROM login WHERE `email`='$email'";
+        $query = "SELECT * FROM register WHERE `email`='$email'";
         // echo $query;
         $data=mysqli_query($connectDB,$query) or die("error");
         if(mysqli_num_rows($data)>0){
