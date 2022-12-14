@@ -5,8 +5,8 @@ if(isset($_POST['submit'])){
   $name=$_POST['name'];
   $email=$_POST['email'];
   $phoneno=$_POST['phoneno'];
-  $pwd=$_POST['pwd'];
-  $sql="INSERT INTO `register` (`client-name`,`name`,  `email-id`, `mobile-no.`, `password` ) VALUES ('$username', '$name', '$email', '$phoneno', '$pwd')";
+  $password=password_hash($_POST['pwd'], PASSWORD_DEFAULT);
+  $sql="INSERT INTO `register` (`client-name`,`name`,  `email-id`, `mobile-no.`, `password` ) VALUES ('$username', '$name', '$email', '$phoneno', '$password')";
 
   
 
