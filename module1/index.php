@@ -2,7 +2,10 @@
 <?php 
 
 include "conn.php";
-
+session_start();
+if(!$_SESSION['email']){
+  header("location: login.php");
+}
 
 if(isset($_POST['submit'])){
 
@@ -24,6 +27,8 @@ else {
 } 
   
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -81,6 +86,7 @@ else {
         <label for="publisher_name">Enter publisher name: </label> <input name="publisher_name" type="text"><br><br>
 <div style="text-align:center;">
 <button class="btn btn-success" type="submit" name="submit">Submit</button>
+<button><a href="logout.php">logout</a></button>
 </div>
         
     </form>
