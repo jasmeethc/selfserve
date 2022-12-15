@@ -74,8 +74,7 @@ if(isset($_POST["submit"])){
         <h1>Login page</h1>
         <form method="post" class="form" >
             <input type="email" name="email" placeholder="Enter your email">
-            <input type="password" name="password" placeholder="Enter your password" minlength="6" autocomplete="off" readonly 
-onfocus="this.removeAttribute('readonly')>
+            <input type="password" name="password" placeholder="Enter your password" minlength="6" >
             <button class="submit" type="submit" name="submit">Submit</button>
             <a href="register.php" style="text-align:right;"> Register Now </a>
         </form>
