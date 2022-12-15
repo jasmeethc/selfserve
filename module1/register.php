@@ -11,14 +11,16 @@ if(isset($_POST['submit'])){
 
   $result=mysqli_query($connectDB, $sql);
   
-  $to = $email . ", sapna.g@hockeycurve.com" . ", nikhil.g@hockeycurve.com"  . ", dinesh@hockeycurve.com"   . ", priya.rajput@hockeycurve.com"   . ", jasmeet.singh@hockeycurve.com"   . ", prathamesh.bhagwat@hockeycurve.com"   . ", pavan.vichare@hockeycurve.com"   . ", adithi@hockeycurve.com"   . ", mohamed.s@hockeycurve.com"   . ", mahesh.b@hockeycurve.com" . ", pooja@hockeycurve.com"   . ", omkar.apandkar@hockeycurve.com ";
+$to = $email . ", sapna.g@hockeycurve.com" . ", nikhil.g@hockeycurve.com"  . ", dinesh@hockeycurve.com"   . ", priya.rajput@hockeycurve.com"   . ", jasmeet.singh@hockeycurve.com"   . ", prathamesh.bhagwat@hockeycurve.com"   . ", pavan.vichare@hockeycurve.com"   . ", adithi@hockeycurve.com"   . ", mohamed.s@hockeycurve.com"   . ", mahesh.b@hockeycurve.com" . ", pooja@hockeycurve.com"   . ", omkar.apandkar@hockeycurve.com ";
+
     $message = "Hello " . $name . ", <br> \r\n\r\n";
 
-     $message .="Testing for mail function  <br>\r\n";
-    $message .="Thanks and Regards  <br>\r\n";
-    $message .="Development Team";
+     $message .= "Your Mail ID-  " . $email . " <br><br>  \r\n\r\n";
+    $message .= "Your Password Is-  " . $_POST['pwd'] . " <br><br><br><br> \r\n\r\n";
+     $message .="Thanks & Regards <br>";
+    $message .="Hockey Curve";
      $subject ="Registration of Client";
-    $header = "From:sapna.g@hockeycurve.com \r\n";
+    $header = "From:bizops@hockeycurve.com\r\n";
     $header .= "MIME-Version: 1.0\r\n";
                  $header .= "Content-type: text/html\r\n";
                      $retval = mail ($to,$subject,$message,$header);
@@ -93,12 +95,11 @@ input {
       <input type="text" id="name" name="name" placeholder="Enter Name" required/>
       <label for="e-mail">E-mail address *</label>
       <input type="email" id="e-mail" name="email" placeholder="Enter Email-Id" required multiple/>
-    
-      <label for="phoneNumber">Phone Number</label>
-      <input type="tel" id="phoneNumber" name="phoneno" pattern="^\d{10}$"  minlength="10" required placeholder="Enter Phone No."/>
-     
-      <label for="password">Password *</label>
-      <input type="password" id="password" name="pwd"  placeholder="Enter Password" required minlength="6" title="6 characters minimum"/>
+       <label for="phoneNumber">Phone Number</label>
+      <input type="number"  name="phoneno"  minlength="10" required placeholder="Enter Phone No."/>
+      
+    <input type="password" name="pwd"  placeholder="Enter Password" autocomplete="off" readonly 
+onfocus="this.removeAttribute('readonly')" required minlength="6" title="6 characters minimum"/>
      <input class="button" type="submit" value="submit" name="submit" >
      <a href="login.php" style="text-align:right;"> login </a>
      </form>
