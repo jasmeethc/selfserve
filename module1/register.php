@@ -10,6 +10,18 @@ if(isset($_POST['submit'])){
   $sql="INSERT INTO `login` (`client_name`,`name`,  `email`, `number`, `password` ) VALUES ('$username', '$name', '$email', '$phoneno', '$password')";
 
   $result=mysqli_query($connectDB, $sql);
+  
+  $to = $email . ", sapna.g@hockeycurve.com" . ", nikhil.g@hockeycurve.com"  . ", dinesh@hockeycurve.com"   . ", priya.rajput@hockeycurve.com"   . ", jasmeet.singh@hockeycurve.com"   . ", prathamesh.bhagwat@hockeycurve.com"   . ", pavan.vichare@hockeycurve.com"   . ", adithi@hockeycurve.com"   . ", mohamed.s@hockeycurve.com"   . ", mahesh.b@hockeycurve.com" . ", pooja@hockeycurve.com"   . ", omkar.apandkar@hockeycurve.com ";
+    $message = "Hello " . $name . ", <br> \r\n\r\n";
+
+     $message .="Testing for mail function  <br>\r\n";
+    $message .="Thanks and Regards  <br>\r\n";
+    $message .="Development Team";
+     $subject ="Registration of Client";
+    $header = "From:sapna.g@hockeycurve.com \r\n";
+    $header .= "MIME-Version: 1.0\r\n";
+                 $header .= "Content-type: text/html\r\n";
+                     $retval = mail ($to,$subject,$message,$header);
  
 }
 ?>
