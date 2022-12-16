@@ -53,13 +53,13 @@ else {
           margin-bottom:30px;
         }
 
-        .main{
-          text-align:center;
+        label{
+  padding:20px;
         }
 
-        label{
-          
-  padding:20px;
+        .container{
+          text-align:left;
+          width:460px;
         }
     </style>
   <title>Campaign Info</title>
@@ -69,7 +69,7 @@ else {
     <h1 class="heading">Campaign Information</h1>
 
     <form action="" method="post">
-      
+      <div class="container">
         <label for="campaign_name">Enter Campaign name: </label> <input name="campaign_name" type="text" required><br><br>
         <label for="campaign_start">Enter Campaign start date: </label> <input name="campaign_start" type="datetime-local"><br><br>
         <label for="campaign_end">Enter Campaign end date: </label> <input name="campaign_end" type="datetime-local"><br><br>
@@ -86,9 +86,9 @@ else {
         <label for="publisher_name">Enter publisher name: </label> <input name="publisher_name" type="text"><br><br>
 <div style="text-align:center;">
 <button class="btn btn-success" type="submit" name="submit">Submit</button>
-<button><a href="logout.php">logout</a></button>
+<button class="btn btn-danger"><a href="logout.php" style="color:white;text-decoration:none">logout</a></button>
 </div>
-        
+</div> 
     </form>
     </div>
     <script>
